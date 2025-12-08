@@ -1,4 +1,4 @@
-# [BobPony.com][1] 
+# [PhenixHartogh.com.au][1] 
 The new rewritten website with a more simplier look and more modular design for easy contributing and flexibility.
 
 ## Setup
@@ -12,10 +12,10 @@ If everything worked properly, you should see the website running. If things don
 
 Feel free to contribute to this website, like fixing any spelling errors or any other errors that you encounter. 
 
-Any fixes will gladly be accepted. Please contact me at contact(at)bobpony.org if you are interested in being a collaborator, then we'll talk about it.
+Any fixes will gladly be accepted. Please contact me at contact(at)phenixhartogh.com.au if you are interested in being a collaborator, then we'll talk about it.
 
 ## Disclaimer
 
 Unless stated otherwise, I am not the creator nor intellectual owner of a file on my downloads page. If you want a takedown of your file, contact me.
 
-[1]: https://bobpony.com "BobPony.com"
+[1]: https://phenixhartogh.com.au "PhenixHartogh.com.au"
