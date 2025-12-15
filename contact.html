@@ -11,42 +11,4 @@ title: Contact
     </p>
   </div>
 </section>
-{% include nojs.html %}
-<div class="container">
-<br />
-<div class="box">
-<form
-  action="https://formspree.io/f/xjvllvwb"
-  method="POST"
->
-  <div class="field">
-  <p class="control has-icons-left has-icons-right">
-    <input class="input is-rounded" type="email" name="email" placeholder="Email">
-    <span class="icon is-small is-left">
-      <i class="fas fa-envelope"></i>
-    </span>
-  </p>
-  </div>
-  <div class="field">
-  <p class="control has-icons-left has-icons-right">
-    <input class="input is-rounded" name="message" placeholder="Message" autocomplete="off">
-    <span class="icon is-small is-left">
-      <i class="fas fa-envelope"></i>
-    </span>
-  </p>
-  </div>
-   <div class="g-recaptcha" data-sitekey="6LfechcUAAAAAKoMsJezng5Hf9Cm9i4fMGmRirO2" data-callback="callback"></div>
-   <noscript><p>To send your message, please enable JavaScript!</p></noscript>
-   <br />
-  <button id="submit-button" class="button is-info is-rounded" type="submit" disabled>Send your message</button>
-</form>
-</div>
-</div>
-
-<script src="https://www.google.com/recaptcha/api.js" async defer></script>
-<script type="text/javascript">
-      function callback() {
-        const submitButton = document.getElementById("submit-button");
-        submitButton.removeAttribute("disabled");
-      }
-</script>
+<script type="text/javascript" src="https://form.jotform.com/jsform/253478038598877"></script>
