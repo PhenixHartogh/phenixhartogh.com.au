@@ -1,4 +1,3 @@
-/* Key Generation */
 async function generateKey() {
   const name = document.getElementById("name").value;
   const email = document.getElementById("email").value;
@@ -15,7 +14,6 @@ async function generateKey() {
   document.getElementById("privateKey").value = key.privateKey;
 }
 
-/* Load Key File */
 function loadKeyFile(event, targetId) {
   const file = event.target.files[0];
   if (!file) return;
@@ -27,7 +25,6 @@ function loadKeyFile(event, targetId) {
   reader.readAsText(file);
 }
 
-/* Encrypt */
 async function encryptMessage() {
   const publicKey = await openpgp.readKey({
     armoredKey: document.getElementById("encryptPublicKey").value
@@ -43,7 +40,6 @@ async function encryptMessage() {
   document.getElementById("encryptedOutput").value = encrypted;
 }
 
-/* Decrypt */
 async function decryptMessage() {
   const privateKey = await openpgp.decryptKey({
     privateKey: await openpgp.readPrivateKey({
@@ -64,7 +60,6 @@ async function decryptMessage() {
   document.getElementById("decryptedOutput").value = data;
 }
 
-/* Sign */
 async function signMessage() {
   const privateKey = await openpgp.decryptKey({
     privateKey: await openpgp.readPrivateKey({
@@ -83,7 +78,6 @@ async function signMessage() {
   document.getElementById("signedOutput").value = signed;
 }
 
-/* Verify */
 async function verifyMessage() {
   const message = await openpgp.readCleartextMessage({
     cleartextMessage: document.getElementById("signedMessageInput").value
@@ -106,7 +100,6 @@ async function verifyMessage() {
   }
 }
 
-/* Utilites */
 function copyText(id) {
   navigator.clipboard.writeText(document.getElementById(id).value);
 }
