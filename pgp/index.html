@@ -8,6 +8,7 @@ title: PGP Tools
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<title>PGP Tools</title>
 
 <!-- OpenPGP.js -->
 <script src="https://unpkg.com/openpgp@5.11.0/dist/openpgp.min.js"></script>
@@ -19,7 +20,7 @@ body {
   color: #c9d1d9;
   padding: 20px;
 }
-textarea, input {
+textarea, input[type="text"], input[type="password"] {
   width: 100%;
   margin: 6px 0;
   padding: 8px;
@@ -53,101 +54,102 @@ button:hover {
   display: block;
   clear: both;
 }
-.file-input {
-  margin: 6px 0;
-}
 </style>
 </head>
 
 <body>
 
-<h1>Secure PGP Tools</h1>
+<h1>Browser-Based PGP Tools</h1>
 
-<!-- Generate & Load PGP Keys -->
+<!-- ===== GENERATE / LOAD KEYS ===== -->
 <div class="section">
 <h2>Generate or Load PGP Keys</h2>
 
-<input id="name" placeholder="Name">
-<input id="email" placeholder="Email">
-<input id="passphrase" type="password" placeholder="Passphrase">
-<button onclick="generateKey()">Generate New Keys</button>
+<input type="text" id="name" placeholder="Name">
+<input type="text" id="email" placeholder="Email">
+<input type="password" id="passphrase" placeholder="Passphrase">
+<button type="button" onclick="generateKey()">Generate New Keys</button>
 
 <hr>
 
 <label>Upload Public Key</label>
-<input type="file" class="file-input" onchange="loadKeyFile(event, 'publicKey')">
+<input type="file" accept=".asc,.txt" onchange="loadKeyFile(event,'publicKey')">
 
 <div class="clearfix">
   <span class="copy-btn" onclick="copyText('publicKey')">📋</span>
 </div>
-<textarea id="publicKey" placeholder="Public Key"></textarea>
-<button onclick="downloadText('publicKey','public_key.asc')">⬇️ Download Public Key</button>
+<textarea id="publicKey" rows="8" placeholder="Public Key"></textarea>
+<button type="button" onclick="downloadText('publicKey','public_key.asc')">⬇️ Download Public Key</button>
 
 <hr>
 
 <label>Upload Private Key</label>
-<input type="file" class="file-input" onchange="loadKeyFile(event, 'privateKey')">
+<input type="file" accept=".asc,.txt" onchange="loadKeyFile(event,'privateKey')">
 
 <div class="clearfix">
   <span class="copy-btn" onclick="copyText('privateKey')">📋</span>
 </div>
-<textarea id="privateKey" placeholder="Private Key"></textarea>
-<button onclick="downloadText('privateKey','private_key.asc')">⬇Download Private Key</button>
+<textarea id="privateKey" rows="8" placeholder="Private Key"></textarea>
+<button type="button" onclick="downloadText('privateKey','private_key.asc')">⬇️ Download Private Key</button>
 
-<p style="color: red;"><strong> Never share your private key.</strong></p>
+<p><strong>⚠️ Never share your private key.</strong></p>
 </div>
 
-<!-- Encrypt Message -->
+<!-- ===== ENCRYPT ===== -->
 <div class="section">
 <h2>Encrypt Message</h2>
-<textarea id="encryptMessage" placeholder="Message to encrypt"></textarea>
-<textarea id="encryptPublicKey" placeholder="Recipient public key"></textarea>
-<button onclick="encryptMessage()">Encrypt</button>
+
+<textarea id="encryptMessage" rows="5" placeholder="Message to encrypt"></textarea>
+<textarea id="encryptPublicKey" rows="6" placeholder="Recipient public key"></textarea>
+<button type="button" onclick="encryptMessage()">Encrypt</button>
 
 <div class="clearfix">
   <span class="copy-btn" onclick="copyText('encryptedOutput')">📋</span>
 </div>
-<textarea id="encryptedOutput" placeholder="Encrypted message"></textarea>
+<textarea id="encryptedOutput" rows="6" placeholder="Encrypted message"></textarea>
 </div>
 
-<!-- Decrypt Message -->
+<!-- ===== DECRYPT ===== -->
 <div class="section">
 <h2>Decrypt Message</h2>
-<textarea id="encryptedInput" placeholder="Encrypted message"></textarea>
-<textarea id="decryptPrivateKey" placeholder="Your private key"></textarea>
-<input id="decryptPassphrase" type="password" placeholder="Passphrase">
-<button onclick="decryptMessage()">Decrypt</button>
+
+<textarea id="encryptedInput" rows="6" placeholder="Encrypted message"></textarea>
+<textarea id="decryptPrivateKey" rows="6" placeholder="Your private key"></textarea>
+<input type="password" id="decryptPassphrase" placeholder="Passphrase">
+<button type="button" onclick="decryptMessage()">Decrypt</button>
 
 <div class="clearfix">
   <span class="copy-btn" onclick="copyText('decryptedOutput')">📋</span>
 </div>
-<textarea id="decryptedOutput" placeholder="Decrypted message"></textarea>
+<textarea id="decryptedOutput" rows="5" placeholder="Decrypted message"></textarea>
 </div>
 
-<!-- Sign Message -->
+<!-- ===== SIGN ===== -->
 <div class="section">
 <h2>Sign Message</h2>
-<textarea id="signMessage" placeholder="Message to sign"></textarea>
-<textarea id="signPrivateKey" placeholder="Private key"></textarea>
-<input id="signPassphrase" type="password" placeholder="Passphrase">
-<button onclick="signMessage()">Sign</button>
+
+<textarea id="signMessage" rows="5" placeholder="Message to sign"></textarea>
+<textarea id="signPrivateKey" rows="6" placeholder="Private key"></textarea>
+<input type="password" id="signPassphrase" placeholder="Passphrase">
+<button type="button" onclick="signMessage()">Sign</button>
 
 <div class="clearfix">
   <span class="copy-btn" onclick="copyText('signedOutput')">📋</span>
 </div>
-<textarea id="signedOutput" placeholder="Signed message"></textarea>
+<textarea id="signedOutput" rows="6" placeholder="Signed message"></textarea>
 </div>
 
-<!-- Verify Message -->
+<!-- ===== VERIFY ===== -->
 <div class="section">
 <h2>Verify Signed Message</h2>
-<textarea id="signedMessageInput" placeholder="Signed message"></textarea>
-<textarea id="verifyPublicKey" placeholder="Signer public key"></textarea>
-<button onclick="verifyMessage()">Verify</button>
+
+<textarea id="signedMessageInput" rows="6" placeholder="Signed message"></textarea>
+<textarea id="verifyPublicKey" rows="6" placeholder="Signer public key"></textarea>
+<button type="button" onclick="verifyMessage()">Verify</button>
+
 <p id="verifyResult"></p>
 </div>
 
-<!-- pgp.js -->
 <script src="pgp.js"></script>
 </body>
 </html>
