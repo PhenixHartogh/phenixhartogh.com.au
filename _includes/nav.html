@@ -28,16 +28,23 @@
             <span>Downloads</span>
           </span>
         </a>
-        <a href="https://status.phenixhartogh.com.au/" class="navbar-item">
+        <a href="/pgp/" class="navbar-item {% if page.url == " /pgp/" %}is-active{% endif %}">
           <span class="icon-text">
             <span class="icon">
-              <i class="fas fa-arrow-trend-up"></i>
+              <i class="fas fa-pgptools"></i>
             </span>
-            <span>Status</span>
+            <span>PGP Tools</span>
           </span>
         </a>
-      </div>
-
+        <a href="/pgp-public/" class="navbar-item {% if page.url == " /pgp-public/" %}is-active{% endif %}">
+          <span class="icon-text">
+            <span class="icon">
+              <i class="fas fa-pgppublic"></i>
+            </span>
+            <span>PGP Public Key</span>
+          </span>
+        </a>
+        
       <div class="navbar-end is-hidden-touch">
         <a href="https://www.youtube.com/@phenbyte" class="navbar-item" title="YouTube">
           <i class="fab fa-youtube"></i>
